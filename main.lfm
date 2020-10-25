@@ -1,0 +1,43 @@
+object FormGameOfLife: TFormGameOfLife
+  Left = 1009
+  Height = 455
+  Top = 492
+  Width = 541
+  Caption = 'Game of Life'
+  ClientHeight = 455
+  ClientWidth = 541
+  OnKeyPress = FormKeyPress
+  LCLVersion = '2.1.0.0'
+  WindowState = wsMaximized
+  object BGRAVirtualScreen: TBGRAVirtualScreen
+    Left = 0
+    Height = 455
+    Top = 0
+    Width = 541
+    OnRedraw = BGRAVirtualScreenRedraw
+    Align = alClient
+    Alignment = taLeftJustify
+    Color = clBlack
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    OnMouseDown = BGRAVirtualScreenMouseDown
+    OnMouseMove = BGRAVirtualScreenMouseMove
+    OnMouseUp = BGRAVirtualScreenMouseUp
+    OnMouseWheelDown = BGRAVirtualScreenMouseWheelDown
+    OnMouseWheelUp = BGRAVirtualScreenMouseWheelUp
+  end
+  object TimerRunStep: TTimer
+    Enabled = False
+    Interval = 75
+    OnTimer = TimerRunStepTimer
+    Left = 256
+    Top = 168
+  end
+  object TimerGarbageCollector: TTimer
+    Interval = 30000
+    OnTimer = TimerGarbageCollectorTimer
+    Left = 256
+    Top = 240
+  end
+end
